@@ -5,7 +5,6 @@
 class Matrix {
     // Public methods
     public:
-        
         /**
          * Constructor
          *
