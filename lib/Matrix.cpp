@@ -12,6 +12,7 @@ Matrix::Matrix(int l, int c) {
 // define value of position
 void Matrix::setValue(float value, int line, int column) {
     if ( (line * columns + column) >= (lines * columns) ) {
+        printf("setValue\n");
         throw;
     }
 
@@ -21,6 +22,7 @@ void Matrix::setValue(float value, int line, int column) {
 // obtain value by position
 float Matrix::getValue(int line, int column) {
     if ( (line * columns + column) >= (lines * columns) ) {
+        printf("getValue\n");
         throw;
     }
     return values[line * columns + column];
@@ -41,7 +43,13 @@ int Matrix::getColumns() {
 Matrix Matrix::operator*(const Matrix &value) const {
     Matrix actual = *this;
     Matrix other = value;
-    if (actual.getLines() != other.getColumns()) {
+        printf("multiplication\n");
+        printf("--------------\n");
+        actual.print();
+        printf("--------------\n");
+        other.print();
+        printf("--------------\n");
+    if (actual.getColumns() != other.getLines()) {
         throw;
     }
 
@@ -56,6 +64,9 @@ Matrix Matrix::operator*(const Matrix &value) const {
             m.setValue(sum,line,i);
         }
     }
+    printf("--------------\n");
+    m.print();
+    printf("--------------\n");
     return m;
 }
 
