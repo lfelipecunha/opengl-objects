@@ -8,9 +8,9 @@ Object ObjectHandler::translate(Object o, float dx, float dy, float dz) {
     identity.setValue(1,1,1);
     identity.setValue(1,2,2);
     identity.setValue(1,3,3);
-    identity.setValue(dx,0,3);
-    identity.setValue(dy,1,3);
-    identity.setValue(dz,2,3);
+    identity.setValue(dx,3,0);
+    identity.setValue(dy,3,1);
+    identity.setValue(dz,3,2);
 
     Point* points  = o.getPoints(true);
     for (int i=0; i<o.getPointsSize(); i++) {
